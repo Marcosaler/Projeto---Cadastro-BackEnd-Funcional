@@ -6,20 +6,28 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<Usuario> lista = new ArrayList<>();
 
-        System.out.print("nome: ");
-        String nome = sc.nextLine();
-        System.out.print("email: ");
-        String email = sc.nextLine();
-        System.out.print("telefone: ");
-        String telefone = sc.nextLine();
-        System.out.print("senha: ");
-        String senha = sc.nextLine();
+        String continuar;
+        do {
+            System.out.print("nome: ");
+            String nome = sc.nextLine();
+            System.out.print("email: ");
+            String email = sc.nextLine();
+            System.out.print("telefone: ");
+            String telefone = sc.nextLine();
+            System.out.print("senha: ");
+            String senha = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, email, telefone, senha);
+            Usuario usuario = new Usuario(nome, email, telefone, senha);
+            lista.add(usuario);
 
-        lista.add(usuario);
-        System.out.println(lista.size());
-        System.out.println(usuario);
-        System.out.println(usuario);
+            System.out.print("Cadastrar mais um?(s/n) ");
+            continuar = sc.nextLine();
+        } while (continuar.equalsIgnoreCase("s"));
+
+        Usuario user = lista.get(0);
+        System.out.println("Nome: " + user.getNome()
+                + " / Email: " + user.getEmail()
+                + " / Telefone: " + user.getTelefone());
+
     }
 }
